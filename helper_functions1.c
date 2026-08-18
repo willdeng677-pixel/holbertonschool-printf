@@ -62,3 +62,22 @@ int print_int(int n)
 
 	return (count);
 }
+
+/**
+ * print_unsigned_base - converts and prints unsigned ints to base 10, 8, or 16
+ * @num: number to print
+ * @base: base radix (8, 10, or 16)
+ * @uppercase: 1 for uppercase hex letters, 0 for lowercase
+ * Return: number of printed characters
+ */
+int print_unsigned_base(unsigned int num, int base, int uppercase)
+{
+    char *lookup = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
+    int count = 0;
+
+    if (num / base)
+        count += print_unsigned_base(num / base, base, uppercase);
+
+    count += print_char(lookup[num % base]);
+    return (count);
+}

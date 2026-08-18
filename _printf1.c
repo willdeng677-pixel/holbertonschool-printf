@@ -64,7 +64,7 @@ case 'x':
 case 'X':
 	count += print_unsigned_base(va_arg(args, unsigned int), 16, 1);
 	break;
-
+	
 case '%':
 	count += print_char('%');
 	break;
